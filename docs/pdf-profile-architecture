@@ -1,0 +1,198 @@
+===============================
+PDF → PROFILE ARCHITECTURE (MVP)
+===============================
+
+1. OVERVIEW FLOW
+
+Client (Frontend)
+    ↓
+POST /api/profile/upload-resume
+    ↓
+Upload Controller (Backend)
+    ↓
+File Processing Layer
+    ↓
+PDF Text Extraction (pdf-parse)
+    ↓
+Text Preprocessing
+    ↓
+LLM Parsing Service
+    ↓
+Validation + Normalization
+    ↓
+UserProfile DB (Postgres)
+    ↓
+Response → Editable Profile
+
+
+--------------------------------
+2. END-TO-END FLOW
+--------------------------------
+
+1. User uploads resume (PDF)
+2. Backend receives file (multipart/form-data)
+3. Extract raw text from PDF
+4. Clean + preprocess text
+5. Send to LLM with structured prompt
+6. Receive JSON response
+7. Validate JSON structure
+8. Normalize fields
+9. Store in UserProfile table
+10. Return profile to frontend
+11. User edits (optional) → save
+
+
+--------------------------------
+3. API DESIGN
+--------------------------------
+
+POST /api/profile/upload-resume
+
+Request:
+- multipart/form-data
+- file: resume.pdf
+
+Response:
+{
+  "profile": { ... },
+  "editable": true
+}
+
+
+--------------------------------
+4. COMPONENTS
+--------------------------------
+
+A. Upload Controller
+- Validate file type (PDF)
+- Validate size (max 5MB)
+- Pass file buffer to service
+
+B. File Processing Layer
+- Handles file buffer
+- No storage (MVP)
+
+C. PDF Extraction Service
+- Use pdf-parse
+- Output: raw text string
+
+D. Preprocessing Layer
+- Remove extra spaces
+- Remove special characters
+- Trim long text
+
+E. LLM Parsing Service
+- Input: cleaned resume text
+- Output: structured JSON
+
+F. Validation Layer
+- Check required fields
+- Ensure valid JSON
+
+G. Normalization Layer
+- Lowercase skills
+- Remove duplicates
+- Standardize roles
+
+H. Database Layer
+- Store structured profile
+
+I. Response Layer
+- Return editable profile
+
+
+--------------------------------
+5. DATABASE SCHEMA
+--------------------------------
+
+Table: UserProfile
+
+{
+  user_id: string,
+
+  name: string,
+  email: string,
+  phone: string,
+
+  experience_years: number,
+  current_role: string,
+  seniority_level: string,
+
+  skills: string[],
+  technologies: string[],
+
+  past_companies: string[],
+  education: string,
+
+  projects_summary: string,
+  resume_summary: string,
+
+  tags: string[],
+
+  updated_at: timestamp
+}
+
+
+--------------------------------
+6. RE-UPLOAD FLOW
+--------------------------------
+
+if (user uploads new resume):
+    parse again
+    overwrite existing profile
+    update timestamp
+
+
+--------------------------------
+7. ERROR HANDLING
+--------------------------------
+
+Case 1: PDF parse fails
+→ return error: "Unable to read resume"
+
+Case 2: LLM fails
+→ retry once
+
+Case 3: Invalid JSON
+→ re-prompt LLM to fix format
+
+
+--------------------------------
+8. PERFORMANCE (MVP)
+--------------------------------
+
+- Keep synchronous processing
+- LLM timeout: 10–15 seconds
+- Optimize text before sending
+
+
+--------------------------------
+9. SECURITY
+--------------------------------
+
+- Allow only PDF files
+- Limit file size (2–5 MB)
+- Sanitize inputs
+- Do NOT store raw files
+
+
+--------------------------------
+10. FUTURE EXTENSIONS
+--------------------------------
+
+- Add S3 storage (optional)
+- Async processing (queue + worker)
+- Profile versioning
+- Confidence score
+- Missing fields detection
+
+
+--------------------------------
+11. KEY PRINCIPLES
+--------------------------------
+
+- No file storage (MVP)
+- Store only structured data
+- Keep pipeline simple
+- Ensure clean JSON output
+- Allow user edits
