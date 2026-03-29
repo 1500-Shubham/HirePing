@@ -2,48 +2,23 @@
 PDF → PROFILE ARCHITECTURE (MVP)
 ===============================
 
-1. OVERVIEW FLOW
+1. FLOW
 
-Client (Frontend)
+Frontend resume upload
     ↓
-POST /api/profile/upload-resume
+Resume upload API
     ↓
-Upload Controller (Backend)
+LLM parse with prompt for all user keys
     ↓
-File Processing Layer
+Store parsed profile in MongoDB
     ↓
-PDF Text Extraction (pdf-parse)
+Website profile section renders profile fields
     ↓
-Text Preprocessing
-    ↓
-LLM Parsing Service
-    ↓
-Validation + Normalization
-    ↓
-UserProfile DB (Postgres)
-    ↓
-Response → Editable Profile
+Reupload resume to reparse or edit manually
 
 
 --------------------------------
-2. END-TO-END FLOW
---------------------------------
-
-1. User uploads resume (PDF)
-2. Backend receives file (multipart/form-data)
-3. Extract raw text from PDF
-4. Clean + preprocess text
-5. Send to LLM with structured prompt
-6. Receive JSON response
-7. Validate JSON structure
-8. Normalize fields
-9. Store in UserProfile table
-10. Return profile to frontend
-11. User edits (optional) → save
-
-
---------------------------------
-3. API DESIGN
+2. API DESIGN
 --------------------------------
 
 POST /api/profile/upload-resume
@@ -60,139 +35,71 @@ Response:
 
 
 --------------------------------
-4. COMPONENTS
+3. COMPONENTS
 --------------------------------
 
 A. Upload Controller
-- Validate file type (PDF)
-- Validate size (max 5MB)
-- Pass file buffer to service
+- Accept PDF upload
+- Pass file buffer to parser
 
-B. File Processing Layer
-- Handles file buffer
-- No storage (MVP)
+B. PDF Extraction
+- Extract text from PDF
 
-C. PDF Extraction Service
-- Use pdf-parse
-- Output: raw text string
+C. LLM Prompt
+- Ask for structured JSON with expected keys
+- Use null / [] for missing fields
 
-D. Preprocessing Layer
-- Remove extra spaces
-- Remove special characters
-- Trim long text
+D. MongoDB Storage
+- Save parsed JSON under `profile`
+- Keep profile fields present for frontend
 
-E. LLM Parsing Service
-- Input: cleaned resume text
-- Output: structured JSON
-
-F. Validation Layer
-- Check required fields
-- Ensure valid JSON
-
-G. Normalization Layer
-- Lowercase skills
-- Remove duplicates
-- Standardize roles
-
-H. Database Layer
-- Store structured profile
-
-I. Response Layer
-- Return editable profile
+E. Profile UI
+- Render string/number fields as inputs
+- Render array fields as list-style controls
+- Allow user updates to save back to MongoDB
 
 
 --------------------------------
-5. DATABASE SCHEMA
+4. MONGODB DOCUMENT DESIGN
 --------------------------------
 
-Table: UserProfile
-
-{
-  user_id: string,
-
-  name: string,
-  email: string,
-  phone: string,
-
-  experience_years: number,
-  current_role: string,
-  seniority_level: string,
-
-  skills: string[],
-  technologies: string[],
-
-  past_companies: string[],
-  education: string,
-
-  projects_summary: string,
-  resume_summary: string,
-
-  tags: string[],
-
-  updated_at: timestamp
-}
+- Save one document per user.
+- Use a top-level `profile` object to hold the parsed LLM data.
+- Keep all expected profile keys present, even if values are null or empty.
+- Example:
+  {
+    user_id: string,
+    profile: { ...parsed LLM JSON... },
+    updated_at: timestamp,
+    created_at: timestamp,
+    source: 'resume-parser'
+  }
+- Do not store raw PDF content.
 
 
 --------------------------------
-6. RE-UPLOAD FLOW
+5. REUPLOAD / EDIT FLOW
 --------------------------------
 
-if (user uploads new resume):
-    parse again
-    overwrite existing profile
-    update timestamp
+- Reupload resume: parse again and update the existing `profile`.
+- Manual edit: allow changes in the profile section and save back to MongoDB.
 
 
 --------------------------------
-7. ERROR HANDLING
+6. SECURITY
 --------------------------------
 
-Case 1: PDF parse fails
-→ return error: "Unable to read resume"
-
-Case 2: LLM fails
-→ retry once
-
-Case 3: Invalid JSON
-→ re-prompt LLM to fix format
+- Accept only PDF uploads.
+- Limit file size.
+- Store only structured profile data.
+- Do not persist raw files.
 
 
 --------------------------------
-8. PERFORMANCE (MVP)
+7. KEY PRINCIPLES
 --------------------------------
 
-- Keep synchronous processing
-- LLM timeout: 10–15 seconds
-- Optimize text before sending
-
-
---------------------------------
-9. SECURITY
---------------------------------
-
-- Allow only PDF files
-- Limit file size (2–5 MB)
-- Sanitize inputs
-- Do NOT store raw files
-
-
---------------------------------
-10. FUTURE EXTENSIONS
---------------------------------
-
-- Add S3 storage (optional)
-- Async processing (queue + worker)
-- Profile versioning
-- Confidence score
-- Missing fields detection
-
-
---------------------------------
-11. KEY PRINCIPLES
---------------------------------
-
-- No file storage (MVP)
-- Store only structured data
-- Keep pipeline simple
-- Ensure clean JSON output
-- Allow user edits
+- Keep the pipeline simple.
+- Store parsed profile data in MongoDB.
+- Render profile fields consistently on the website.
+- Allow reupload or manual edits.

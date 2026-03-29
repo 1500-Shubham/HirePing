@@ -27,7 +27,13 @@ module.exports = async function (fastify, opts) {
 
   fastify.post('/resume/upload', async (request, reply) => {
     try {
-        console.log("request headers:", request.headers['content-type']);
+      const userId = request.headers['x-user-id'] || request.headers['user-id'];
+      if (!userId) {
+        reply.status(400);
+        return { success: false, error: 'Missing X-User-Id header' };
+      }
+
+      console.log("request headers:", request.headers['content-type']);
       const data = await request.file();
 
       if (!data) {
@@ -88,8 +94,25 @@ module.exports = async function (fastify, opts) {
         };
       }
 
+      const users = fastify.mongo.collection('users');
+      const now = new Date();
+      await users.updateOne(
+        { user_id: userId },
+        {
+          $set: {
+            user_id: userId,
+            profile: parsed,
+            source: 'resume-parser',
+            updated_at: now,
+          },
+          $setOnInsert: { created_at: now },
+        },
+        { upsert: true }
+      );
+
       return {
         success: true,
+        user_id: userId,
         profile: parsed,
         prompt: prompt,
         raw: output,
