@@ -1,0 +1,16 @@
+name,email,role,company,companyType
+Sarah Mitchell,sarah@shopify.com,Engineering Manager,Shopify,mnc
+James Thompson,james.t@hootsuite.com,HR Director,Hootsuite,mid-size
+Priya Patel,priya@wealthsimple.com,Recruiter,Wealthsimple,startup
+David Chen,david.c@clio.com,CTO,Clio,startup
+Emily Wilson,emily@lightspeed.com,HR Manager,Lightspeed,mid-size
+Michael Brown,michael@dapper.com,VP Engineering,Dapper Labs,startup
+Jessica Lee,jessica@freshbooks.com,Talent Acquisition,FreshBooks,mid-size
+Ryan Singh,ryan@ada.cx,Engineering Lead,Ada,startup
+Amanda Taylor,amanda@tophat.com,People Ops,Top Hat,startup
+Kevin Wang,kevin@ecobee.com,HR Manager,Ecobee,mid-size
+Olivia Martin,olivia@benevity.com,Recruiter,Benevity,mid-size
+Daniel Kim,daniel@1password.com,CTO,1Password,startup
+Rachel Adams,rachel@clearco.com,HR Lead,Clearco,startup
+Nathan Sharma,nathan@ritual.co,Engineering Manager,Ritual,startup
+Lauren Scott,lauren@vidyard.com,People Partner,Vidyard,startup

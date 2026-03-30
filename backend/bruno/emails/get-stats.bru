@@ -1,0 +1,15 @@
+meta {
+  name: Get Email Stats
+  type: http
+  seq: 16
+}
+
+get {
+  url: http://localhost:4000/api/emails/stats
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

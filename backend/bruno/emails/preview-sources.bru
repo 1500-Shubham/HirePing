@@ -1,0 +1,22 @@
+meta {
+  name: Preview Sources
+  type: http
+  seq: 12
+}
+
+get {
+  url: http://localhost:4000/api/emails/preview?count=10
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  Preview which sources will receive emails.
+  Query param: count (how many to preview, default 30).
+  Returns shuffled sources matching user's selected countries.
+  Admin only: used to review before sending.
+}

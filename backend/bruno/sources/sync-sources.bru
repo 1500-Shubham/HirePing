@@ -1,0 +1,21 @@
+meta {
+  name: Sync Sources from Folder
+  type: http
+  seq: 10
+}
+
+post {
+  url: http://localhost:4000/api/sources/sync
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  Reads all .txt/.csv/.pdf files from the sources/ folder.
+  Country is extracted from filename (INDIA.txt → INDIA).
+  Upserts contacts into the Source collection.
+}

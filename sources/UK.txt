@@ -1,0 +1,21 @@
+name,email,role,company,companyType
+Emma Thompson,emma.t@revolut.com,HR Manager,Revolut,startup
+Oliver Williams,oliver@monzo.com,Engineering Lead,Monzo,startup
+Charlotte Davies,charlotte@deliveroo.com,Talent Acquisition,Deliveroo,mid-size
+Harry Evans,harry@wise.com,CTO,Wise,mid-size
+Amelia Roberts,amelia@sky.uk,HR Director,Sky,mnc
+George Hughes,george@arm.com,Engineering Manager,ARM,mnc
+Sophie Walker,sophie@farfetch.com,Recruiter,Farfetch,mid-size
+Jack Martin,jack@improbable.io,VP People,Improbable,startup
+Ella Jones,ella@starlingbank.com,HR Lead,Starling Bank,startup
+William Taylor,william.t@bp.com,Tech Recruiter,BP,mnc
+Chloe Brown,chloe@checkout.com,HR Manager,Checkout.com,startup
+Thomas Wilson,thomas@asos.com,Engineering Director,ASOS,mid-size
+Isabella Jackson,isabella@babylon.com,People Partner,Babylon Health,startup
+James White,james.w@vodafone.co.uk,HR Manager,Vodafone,mnc
+Mia Harris,mia@bulb.co.uk,Recruiter,Bulb,startup
+Alexander Clark,alex@darktrace.com,CTO,Darktrace,mid-size
+Grace Lewis,grace@graphcore.ai,HR Lead,Graphcore,startup
+Daniel Robinson,daniel@ocado.com,VP Engineering,Ocado,mid-size
+Poppy Hall,poppy@gymshark.com,People Ops,Gymshark,mid-size
+Henry Young,henry@snyk.io,Engineering Manager,Snyk,startup

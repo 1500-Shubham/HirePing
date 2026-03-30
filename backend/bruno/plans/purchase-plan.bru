@@ -1,0 +1,29 @@
+meta {
+  name: Purchase Plan (UPI)
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:4000/api/plans/purchase
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "planType": "weekly",
+    "upiTransactionId": "UTR123456789"
+  }
+}
+
+docs {
+  Purchase a plan via UPI payment.
+  Options: "weekly" (₹200, 7 days) or "monthly" (₹600, 30 days).
+  User pays via UPI, then submits the UTR/transaction ID to activate.
+  Activates 30 emails/day limit.
+}

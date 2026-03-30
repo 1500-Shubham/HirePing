@@ -1,0 +1,32 @@
+meta {
+  name: Send Emails
+  type: http
+  seq: 13
+}
+
+post {
+  url: http://localhost:4000/api/emails/send
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "count": 10
+  }
+}
+
+docs {
+  Manually trigger sending emails.
+
+  Body (optional): { "count": 10 } — how many to send.
+  - Admin: can send any number, no plan needed.
+  - Regular user: capped at daily limit (30), requires active plan.
+
+  Anti-bombarding: max 5 emails per source/day across all users.
+  Generates unique emails via Gemini AI (checks last 5 for uniqueness).
+}

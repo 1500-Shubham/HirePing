@@ -1,0 +1,26 @@
+meta {
+  name: Upload Resume
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:4000/api/resume/upload
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:multipart-form {
+  file: @file(C:/Users/shubh/Desktop/resume.pdf)
+}
+
+docs {
+  Upload a PDF resume. The system will:
+  1. Parse PDF text
+  2. Send to Gemini AI for structured extraction
+  3. Store parsed data in user.profile
+}

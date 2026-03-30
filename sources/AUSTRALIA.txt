@@ -1,0 +1,16 @@
+name,email,role,company,companyType
+James Cooper,james@canva.com,Engineering Manager,Canva,startup
+Sarah Williams,sarah.w@atlassian.com,HR Director,Atlassian,mnc
+Oliver Chen,oliver@safeticulture.com,Recruiter,SafetyCulture,startup
+Emma Thompson,emma@airwallex.com,HR Manager,Airwallex,startup
+Liam Patel,liam@linktree.com,CTO,Linktree,startup
+Chloe Robinson,chloe@culture-amp.com,People Lead,Culture Amp,mid-size
+Noah Wilson,noah@buildkite.com,Engineering Lead,Buildkite,startup
+Ava Brown,ava@envato.com,HR Manager,Envato,mid-size
+William Singh,william@rokt.com,VP Engineering,Rokt,mid-size
+Isabella Martin,isabella@employmenthero.com,Recruiter,Employment Hero,startup
+Ethan Lee,ethan@immutable.com,CTO,Immutable,startup
+Mia Taylor,mia@prospa.com,People Ops,Prospa,startup
+Jack Anderson,jack@go1.com,HR Lead,Go1,startup
+Sophie Davis,sophie@brighte.com.au,Talent Acquisition,Brighte,startup
+Lucas White,lucas@fleet.space,Engineering Manager,Fleet Space,startup

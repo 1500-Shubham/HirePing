@@ -1,0 +1,31 @@
+name,email,role,company,companyType
+Sarah Johnson,sarah.johnson@google.com,Engineering Manager,Google,mnc
+Michael Chen,michael.chen@meta.com,Technical Recruiter,Meta,mnc
+Emily Davis,emily.davis@stripe.com,HR Lead,Stripe,startup
+James Wilson,james@openai.com,CTO,OpenAI,startup
+Jessica Brown,jessica.brown@amazon.com,HR Manager,Amazon,mnc
+David Kim,david.kim@netflix.com,Engineering Director,Netflix,mnc
+Ashley Martinez,ashley@figma.com,People Ops,Figma,startup
+Robert Taylor,robert.t@microsoft.com,HR Director,Microsoft,mnc
+Lauren White,lauren@vercel.com,Recruiter,Vercel,startup
+Chris Anderson,chris@datadog.com,VP Engineering,Datadog,mid-size
+Amanda Thomas,amanda@notion.so,HR Manager,Notion,startup
+Daniel Lee,daniel.lee@apple.com,Technical Recruiter,Apple,mnc
+Rachel Garcia,rachel@linear.app,People Lead,Linear,startup
+Brian Harris,brian@snowflake.com,Engineering Manager,Snowflake,mid-size
+Megan Clark,megan@airbnb.com,HR Manager,Airbnb,mid-size
+Kevin Robinson,kevin@palantir.com,CTO,Palantir,mid-size
+Stephanie Lewis,stephanie@coinbase.com,Recruiter,Coinbase,mid-size
+Jason Walker,jason@cloudflare.com,VP People,Cloudflare,mid-size
+Nicole Hall,nicole@plaid.com,HR Lead,Plaid,startup
+Ryan Young,ryan@databricks.com,Engineering Director,Databricks,mid-size
+Samantha King,samantha@twilio.com,Talent Acquisition,Twilio,mid-size
+Patrick Wright,patrick@hashicorp.com,HR Manager,HashiCorp,mid-size
+Olivia Scott,olivia@supabase.com,People Ops,Supabase,startup
+Tyler Adams,tyler@ramp.com,CTO,Ramp,startup
+Natalie Green,natalie@doordash.com,HR Director,DoorDash,mid-size
+Andrew Baker,andrew@uber.com,Engineering Manager,Uber,mnc
+Christina Hill,christina@lyft.com,Recruiter,Lyft,mid-size
+Mark Nelson,mark@confluent.io,VP Engineering,Confluent,mid-size
+Rebecca Carter,rebecca@mongodb.com,HR Manager,MongoDB,mid-size
+Joshua Mitchell,joshua@retool.com,CTO,Retool,startup

@@ -1,23 +1,54 @@
-version: '3.9'
+version: '3.8'
 
 services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    env_file:
-      - .env
-    depends_on:
-      - mongo
-    volumes:
-      - .:/usr/src/app
-
-  mongo:
+  mongodb:
     image: mongo:7
+    container_name: hireping-mongo
+    restart: unless-stopped
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: hireping_admin
+      MONGO_INITDB_ROOT_PASSWORD: hireping_secret_2026
+      MONGO_INITDB_DATABASE: hireping
     volumes:
       - mongo_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: hireping-backend
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      MONGO_URI: mongodb://hireping_admin:hireping_secret_2026@mongodb:27017/hireping?authSource=admin
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-dummy-google-client-id}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-dummy-google-client-secret}
+      JWT_SECRET: ${JWT_SECRET:-hireping-jwt-secret-change-in-production-2026}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-dummy-gemini-api-key}
+      PORT: 4000
+      NODE_ENV: production
+      FRONTEND_URL: http://localhost:5173
+      BACKEND_URL: http://localhost:4000
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    volumes:
+      - ./sources:/usr/src/sources
+
+  frontend:
+    build: ./frontend
+    container_name: hireping-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
 
 volumes:
   mongo_data:

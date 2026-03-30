@@ -1,0 +1,16 @@
+name,email,role,company,companyType
+Lena Mueller,lena@celonis.com,HR Manager,Celonis,startup
+Maximilian Schmidt,max@sap.com,Engineering Director,SAP,mnc
+Anna Fischer,anna@n26.com,Recruiter,N26,startup
+Paul Wagner,paul@flixbus.com,CTO,FlixBus,mid-size
+Marie Weber,marie@siemens.com,HR Lead,Siemens,mnc
+Felix Bauer,felix@personio.com,VP People,Personio,startup
+Laura Hoffmann,laura@zalando.de,Tech Recruiter,Zalando,mid-size
+Jonas Richter,jonas@contentful.com,Engineering Manager,Contentful,startup
+Sophie Braun,sophie@delivery-hero.com,HR Manager,Delivery Hero,mid-size
+Tim Krause,tim@wefox.com,CTO,Wefox,startup
+Niklas Hartmann,niklas@trade-republic.com,HR Lead,Trade Republic,startup
+Clara Zimmermann,clara@hellofresh.com,Talent Acquisition,HelloFresh,mid-size
+Moritz Becker,moritz@teamviewer.com,Engineering Manager,TeamViewer,mid-size
+Hannah Schulz,hannah@flixbus.de,People Ops,FlixBus,mid-size
+Leon Fischer,leon@adjust.com,CTO,Adjust,startup

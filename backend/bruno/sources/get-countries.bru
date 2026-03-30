@@ -1,0 +1,15 @@
+meta {
+  name: Get Source Countries
+  type: http
+  seq: 11
+}
+
+get {
+  url: http://localhost:4000/api/sources/countries
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

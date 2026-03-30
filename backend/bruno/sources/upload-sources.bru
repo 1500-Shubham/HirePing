@@ -1,0 +1,33 @@
+meta {
+  name: Upload Source Files
+  type: http
+  seq: 10
+}
+
+post {
+  url: http://localhost:4000/api/sources/upload
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:multipart-form {
+  files: @file(C:/Startup/HirePing/sources/INDIA.txt)
+  files: @file(C:/Startup/HirePing/sources/US.txt)
+  files: @file(C:/Startup/HirePing/sources/UK.txt)
+}
+
+docs {
+  Upload multiple source files (txt/csv/pdf/xlsx) via multipart form.
+  Country is extracted from filename: INDIA.txt → INDIA, US2.xlsx → US.
+  Supports up to 50 files per request, 20MB each.
+
+  Each file can contain:
+  - Full CSV: name,email,role,company,companyType
+  - Just emails: one email per line
+  - Excel with headers
+  - PDF with tabular or email data
+}

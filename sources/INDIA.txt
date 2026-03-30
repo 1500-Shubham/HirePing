@@ -1,0 +1,41 @@
+name,email,role,company,companyType
+Priya Sharma,priya.sharma@infosys.com,HR Manager,Infosys,mnc
+Rajesh Kumar,rajesh.kumar@wipro.com,Technical Recruiter,Wipro,mnc
+Anita Desai,anita.desai@tcs.com,HR Lead,TCS,mnc
+Vikram Singh,vikram@razorpay.com,Engineering Manager,Razorpay,startup
+Sneha Patel,sneha.patel@zerodha.com,People Ops,Zerodha,startup
+Arjun Mehta,arjun@cred.club,CTO,CRED,startup
+Kavitha Reddy,kavitha.r@flipkart.com,HR Director,Flipkart,mnc
+Rohit Bansal,rohit@snapdeal.com,VP Engineering,Snapdeal,mid-size
+Deepika Nair,deepika.nair@freshworks.com,Talent Acquisition,Freshworks,mid-size
+Amit Joshi,amit.joshi@paytm.com,HR Manager,Paytm,mid-size
+Pooja Gupta,pooja@postman.com,Engineering Lead,Postman,startup
+Suresh Iyer,suresh@zoho.com,HR Head,Zoho,mid-size
+Meera Krishnan,meera.k@swiggy.com,Recruiter,Swiggy,startup
+Aakash Verma,aakash@zomato.com,CTO,Zomato,startup
+Nisha Agarwal,nisha@ola.com,People Partner,Ola,mid-size
+Karan Malhotra,karan.m@myntra.com,Tech Lead,Myntra,mid-size
+Divya Srinivasan,divya@phonepe.com,HR Manager,PhonePe,startup
+Rahul Pandey,rahul.pandey@mindtree.com,Delivery Manager,Mindtree,mnc
+Sanjay Chopra,sanjay@groww.in,Co-founder,Groww,startup
+Anjali Thakur,anjali@unacademy.com,HR Lead,Unacademy,startup
+Vivek Raghavan,vivek@bharatpe.com,Engineering Manager,BharatPe,startup
+Prateek Saxena,prateek@lenskart.com,Tech Recruiter,Lenskart,mid-size
+Shruti Mishra,shruti@meesho.com,HR Manager,Meesho,startup
+Gaurav Kapoor,gaurav@dream11.com,CTO,Dream11,startup
+Ritu Sharma,ritu@nykaa.com,People Manager,Nykaa,mid-size
+Manish Tiwari,manish@hcl.com,HR Director,HCL,mnc
+Pallavi Jain,pallavi@mphasis.com,Talent Lead,Mphasis,mnc
+Abhishek Das,abhishek@sharechat.com,Engineering Head,ShareChat,startup
+Tanvi Shah,tanvi@cleartax.com,HR Manager,ClearTax,startup
+Nikhil Rao,nikhil@slice.com,CTO,Slice,startup
+Aditi Kulkarni,aditi@juspay.com,Recruiter,Juspay,startup
+Siddharth Bhatia,sid@urban.company,VP People,Urban Company,startup
+Harshita Goel,harshita@delhivery.com,HR Lead,Delhivery,mid-size
+Varun Sethi,varun@policybazaar.com,Tech Manager,PolicyBazaar,mid-size
+Neha Chauhan,neha@bigbasket.com,HR Manager,BigBasket,mid-size
+Ishaan Dutta,ishaan@coinswitch.co,CTO,CoinSwitch,startup
+Radhika Menon,radhika@chargebee.com,People Ops,Chargebee,startup
+Arun Prasad,arun@hasura.io,Engineering Lead,Hasura,startup
+Swati Dubey,swati@browserstack.com,HR Manager,BrowserStack,mid-size
+Mohit Agrawal,mohit@tekion.com,Recruiter,Tekion,startup
