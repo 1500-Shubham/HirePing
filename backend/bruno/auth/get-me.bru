@@ -14,6 +14,10 @@ auth:bearer {
   token: {{token}}
 }
 
+vars:pre-request {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWNiYzBmNmQ3MGFkNGFjNDhhYjMxMmYiLCJpYXQiOjE3NzQ5NjA4ODYsImV4cCI6MTc3NTU2NTY4Nn0.RFpYy9Y4qbOlMo14KwOWYlv4MfqFngxxc61XN8PbYz0
+}
+
 docs {
   Returns the currently authenticated user's data.
 }
