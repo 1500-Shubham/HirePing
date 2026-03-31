@@ -62,8 +62,20 @@ const features = [
 
 const pricingPlans = [
   {
+    name: 'Daily',
+    price: '29',
+    period: '1 day',
+    features: [
+      'Up to 30 emails',
+      'AI-personalized content',
+      'Multi-country targeting',
+      'Email history & tracking',
+      'Pay via UPI',
+    ],
+  },
+  {
     name: 'Weekly',
-    price: '200',
+    price: '149',
     period: '7 days',
     features: [
       'Up to 30 emails per day',
@@ -75,7 +87,7 @@ const pricingPlans = [
   },
   {
     name: 'Monthly',
-    price: '600',
+    price: '299',
     period: '30 days',
     popular: true,
     features: [
@@ -85,7 +97,7 @@ const pricingPlans = [
       'Email history & tracking',
       'Priority support',
       'Pay via UPI',
-      'Best value — save 43%',
+      'Best value — save 53%',
     ],
   },
 ]
@@ -314,7 +326,7 @@ export default function Landing() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {pricingPlans.map((plan) => (
               <div
                 key={plan.name}

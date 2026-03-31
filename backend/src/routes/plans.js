@@ -6,9 +6,17 @@ const User = require('../models/User');
 const router = express.Router();
 
 const PLANS = {
+  daily: {
+    name: 'Daily',
+    price: 29,
+    currency: 'INR',
+    duration: 1,
+    dailyLimit: 30,
+    description: '30 emails for 1 day',
+  },
   weekly: {
     name: 'Weekly',
-    price: 200,
+    price: 149,
     currency: 'INR',
     duration: 7,
     dailyLimit: 30,
@@ -16,7 +24,7 @@ const PLANS = {
   },
   monthly: {
     name: 'Monthly',
-    price: 600,
+    price: 299,
     currency: 'INR',
     duration: 30,
     dailyLimit: 30,
@@ -171,7 +179,7 @@ router.post('/purchase', requireAuth, async (req, res) => {
     const { planType, upiTransactionId } = req.body;
 
     if (!planType || !PLANS[planType]) {
-      return res.status(400).json({ error: 'Invalid plan type. Choose "weekly" or "monthly".' });
+      return res.status(400).json({ error: 'Invalid plan type. Choose "daily", "weekly", or "monthly".' });
     }
 
     if (!upiTransactionId || upiTransactionId.trim().length < 4) {

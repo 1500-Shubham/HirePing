@@ -18,9 +18,22 @@ import {
 
 const planOptions = [
   {
+    type: 'daily',
+    name: 'Daily',
+    price: 29,
+    period: '1 day',
+    features: [
+      '30 personalized emails',
+      'AI-crafted unique content',
+      'Multi-country targeting',
+      'Sent from your Gmail',
+      'Email history tracking',
+    ],
+  },
+  {
     type: 'weekly',
     name: 'Weekly',
-    price: 200,
+    price: 149,
     period: '7 days',
     features: [
       '30 personalized emails/day',
@@ -33,10 +46,10 @@ const planOptions = [
   {
     type: 'monthly',
     name: 'Monthly',
-    price: 600,
+    price: 299,
     period: '30 days',
     popular: true,
-    saveBadge: 'Save 43%',
+    saveBadge: 'Save 53%',
     features: [
       '30 personalized emails/day',
       'AI-crafted unique content',
@@ -279,7 +292,7 @@ export default function Plans() {
       )}
 
       {/* Plan Cards */}
-      <div className="grid sm:grid-cols-2 gap-6">
+      <div className="grid sm:grid-cols-3 gap-6">
         {planOptions.map((plan) => {
           const isCurrentPlan = isActive && activePlanType === plan.type
           const isPaying = paying === plan.type
